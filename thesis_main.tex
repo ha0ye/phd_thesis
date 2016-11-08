@@ -1,0 +1,261 @@
+% UCSD Mathematics Dissertation Template
+%
+% Please read the comments in this file and make appropriate edits.
+% NOTE: Always refer to the ``Preperation and Submission Manual for 
+% Doctoral Dissertations and Masters Theses for 20**'', where 20** is 
+% the year of your graduation, for officiation preparations guidelines.
+%
+% If you desire more control, please see the attached files:
+%   * ucsd.cls -- Class file
+%   * uct10.clo, uct11.clo, uct12.clo -- Configuration files for font sizes 10pt,11pt,12pt
+%
+% CHANGELOG:
+%   * Original file adapted from brockman.tex by JRB and RMR
+%     to work with ucsd.cls
+
+
+\documentclass[12pt,chapterheads]{ucsd}
+% documentclass options: default is 11pt, oneside, final.
+% fonts: 10pt, 11pt, 12pt -- are valid for UCSD dissertations.
+% sides: oneside, twoside -- note that two-sided theses are not accepted by OGS
+% mode: draft, final -- draft mode switches to single spacing, removes hyperlinks,
+%                       and places a black box at every overfull hbox (check these before submission).
+% chapterheads -- include this if you want your chapters to read:
+% Chapter 1
+% Title of Chapter
+%
+% instead of
+%
+% 1 Title of Chapter
+
+
+% Include all packages you need here.  Some standard options are suggested below.
+
+% GEOMETRY - This will force the use of Letter paper.
+% Many TeX installations default to A4 paper.  The formatting
+% of the thesis class file requires Letter, else the margins
+% will be wrong when you go to print it (and OGS will complain).
+% If your TeX implementation is not setup for Letter paper, and
+% you cannot change it, uncommenting the following line may fix 
+% problem.
+% \usepackage[paper=letterpaper]{geometry}
+
+
+%% AMS PACKAGES - Chances are you will want some or all of these if writing a math dissertation.
+\usepackage{amsmath, amscd, amssymb, amsthm}
+
+%% GRAPHICX - This is the standard package for including graphics for latex/pdflatex.
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\usepackage{breakcites}
+
+%% LATIN MODERN FONTS (replacements for Computer Modern)
+% \usepackage{lmodern}
+% \usepackage[T1]{fontenc}
+
+%% INDEX
+% Uncomment the following two lines to create an index: 
+% \usepackage{makeidx}
+% \makeindex
+% You will need to uncomment the \printindex line near the
+% bibliography to display the index.  Use the command
+% \index{keyword} within the text to create an entry in the index
+% for keyword.
+
+%% HYPERLINKS
+% To create a PDF with hyperlinks, you need to include the hyperref package.
+% THIS HAS TO BE THE LAST PACKAGE INCLUDED!
+% Note that the options plainpages=false and pdfpagelabels exist
+% to fix indexing associated with having both (ii) and (2) as pages.
+% Also, all links must be black according to OGS.
+% See: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=hyperdupdest
+% Note: This may not work correctly with all DVI viewers (i.e. Yap breaks).
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=black, citecolor=black, urlcolor=black,plainpages=false,pdfpagelabels]{hyperref}
+% \hypersetup{ pdfauthor = {Your Name Here}, pdftitle = {The Title of The Dissertation}, pdfkeywords = {Keywords for Searching}, pdfcreator = {pdfLaTeX with hyperref package}, pdfproducer = {pdfLaTeX}}
+\urlstyle{same}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\newcommand{\specialcellC}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+  
+\newcommand{\specialcellL}[2][c]{%
+  \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+\newcommand{\specialcellR}[2][c]{%
+  \begin{tabular}[#1]{@{}r@{}}#2\end{tabular}}
+
+\begin{document}
+\setlength{\floatsep}{0pt plus 3pt minus 2pt}
+\setlength{\textfloatsep}{12pt plus 3pt minus 2pt}
+\setlength{\parindent}{0.5in}
+
+
+%% REQUIRED FIELDS -- Replace with the values appropriate to you
+\title{Nonlinear Tools for a Nonlinear World: \\Applications of Empirical Dynamic Modeling to Marine Ecosystems}
+% No symbols, formulas, superscripts, or Greek letters are allowed
+% in your title.
+
+\author{Hao Ye}
+\degreeyear{2015}
+\degree{Doctor of Philosophy} 
+% Master's Degree theses will NOT be formatted properly with this
+% file.
+
+\field{Oceanography}
+\chair{George Sugihara}
+% Uncomment the next line iff you have a Co-Chair
+% \cochair{Professor Cochair Semimaster} 
+\othermembers{%  These must be alpha by last name.
+Peter J.S. Franks\\ 
+Stuart A. Sandin\\
+Jonathan B. Shurin\\
+Steven L. Teo\\
+Brad T. Werner\\
+}
+\numberofmembers{6} % |chair| + |cochair| + |othermembers|
+
+\begin{frontmatter}
+\makefrontmatter % The title, copyright, and signature pages.
+
+%% DEDICATION
+% You have three choices here:
+%   1. Use the ``dedication'' environment.   Put in the text you want,
+%   and you'll get a perfectly respectable dedication page.
+%
+%   2. Use the ``mydedication'' environment.  If you don't like the
+%   formatting of option 1, use this environment and format things
+%   however you wish.
+%
+%   3. If you don't want a dedication, it's not required.
+
+
+\begin{dedication} % The style file will format this for you.
+  To Steve Gao, David Hu, and Rachel Morrison, \\dear friends who departed before their time.
+\end{dedication}
+
+% \begin{mydedication} % You are responsible for formatting here.
+%   \vspace{1in}
+%   \begin{flushleft}
+% 	To me.
+%   \end{flushleft}
+%   
+%   \vspace{2in}
+%   \begin{center}
+% 	And you.
+%   \end{center}
+% 
+%   \vspace{2in}
+%   \begin{flushright}
+% 	Which equals us.
+%   \end{flushright}
+% \end{mydedication}
+
+
+%% EPIGRAPH
+%  The same choices that applied to the dedication apply here.
+
+\begin{epigraph} % The style file will position the text for you.
+  \emph{It is a capital mistake to theorize before one has data. Insensibly one begins to twist facts to suit theories, instead of theories to suit facts.}\\
+  ---Sherlock Holmes (Sir Arthur Conan Doyle, \emph{A Scandal in Bohemia})\\
+\end{epigraph}
+
+% \begin{myepigraph} % You position the text yourself.
+%   \vfil
+%   \begin{center}
+%     {\bf Think! It ain't illegal yet.}
+% 
+% 	\emph{---George Clinton}
+%   \end{center}
+% \end{myepigraph}
+
+\tableofcontents
+\listofsuppfiles
+\listoffigures  % Uncomment if you have any figures
+\listoftables   % Uncomment if you have any tables
+
+%% ACKNOWLEDGEMENTS
+%  While technically optional, you probably have someone to thank.
+%  Also, a paragraph acknowledging all coauthors and publishers (if
+%  you have any) is required in the acknowledgements page and as the
+%  last paragraph of text at the end of each respective chapter. See
+%  the OGS Formatting Manual for more information.
+
+\begin{acknowledgements} 
+Thanks to my family, who remained eternally optimistic in supporting my dreams and aspirations, and to my friends and colleagues, especially those of the Wednesday Night Magic and SandLUG crowds, who kept me sane throughout.
+
+The advice, criticisms, knowledge, and wisdom of my numerous collaborators and coauthors has been invaluable and inspiring. Thanks to Richard J. Beamish, Adam T. Clark, Ethan R. Deyle, Luis J. Gilarranz, Sarah M. Glaser, Sue C.H. Grant, Chih-hao Hsieh, Laura J. Richards, Jon T. Schnute, and George Sugihara for sticking with me on this journey.
+
+Scientific research is not cheap, even if one is only being paid a graduate student stipend. I am grateful for the funding agencies who have directly or indirectly supported my research, including the Scripps Institution of Oceanography, the National Marine Fisheries Service, and the National Science Foundation.
+
+Finally, I credit my advisor, George Sugihara for molding me into something resembling an academic scholar. Without your insightful comments, numerous second chances, and the occasional kick in the pants, I would be lost (or grinding my life away in a soulless bay area startup).
+
+Several chapters of this dissertation contain co-authored and/or previously published materials:
+Chapter \ref{chap_salmon_environment}, in full, is a reprint of material published by the National Academies Press as: Hao Ye, Richard J. Beamish, Sarah M. Glaser, Sue C.H. Grant, Chih-hao Hsieh, Laura J. Richards, Jon T. Schnute, and George Sugihara. (2015) Equation-free mechanistic ecosystem forecasting using empirical dynamic modeling. \emph{Proceedings of the National Academy of Sciences} 112: E1569-E1576. The dissertation author was the primary investigator and author of this paper.
+
+Chapter \ref{chap_salmon_regimes}, in full, is material prepared for submission: Hao Ye and George Sugihara. Apparent regime shifts or nonlinear state-dependence: Environmental drivers of Fraser River sockeye salmon recruitment. The dissertation author was the primary investigator and author of this paper.
+
+Chapter \ref{chap_ccm_time_delays}, in full, is a reprint of material published by Nature Publishing Group as: Hao Ye, Ethan R. Deyle, Luis J. Gilarranz, and George Sugihara. (2015) Distinguishing time-delayed causal interactions using convergent cross mapping. \emph{Scientific Reports} 5: 14750. The dissertation author was the primary investigator and author of this paper.
+
+Chapter \ref{chap_multiembed}, in full, is material prepared for submission: Hao Ye and George Sugihara. Complexity is not a curse: leveraging information in interconnected systems. The dissertation author was the primary investigator and author of this paper.
+
+Chapter \ref{chap_redm_package} contains material prepared for submission: Hao Ye, Adam T. Clark, and Ethan R. Deyle. rEDM: A package for empirical dynamic modeling based on attractor reconstruction. \emph{Journal of Statistical Software}. The dissertation author was the primary investigator and author of this paper.
+
+\end{acknowledgements}
+
+%% VITA
+%  A brief vita is required in a doctoral thesis. See the OGS
+%  Formatting Manual for more information.
+\begin{vitapage}
+\begin{vita}
+\item[2006] Bachelor of Science, California Institute of Technology
+\item[2007] Master of Arts, University of California, San Diego
+\item[2011] Master of Science, University of California, San Diego
+\item[2015] Doctor of Philosophy, University of California, San Diego 
+\end{vita}
+\end{vitapage}
+
+%% Abstract
+% There does not seem to be a maximum length. From the OGS Formatting
+% Manual: ``The abstract may continue on to a second page.''
+
+\begin{abstract}
+
+A fundamental objective in the study of dynamic systems is to understand and predict their behavior.  The research presented in this thesis addresses this goal using the general framework of empirical dynamic modeling (EDM). In the classical approach, system behavior is described using fixed mathematical equations, and multiple effects are often treated as linearly separable (i.e. in a reductionist framework). In contrast, EDM applies Takens' Theorem and the method of time delay embeddings to reconstruct system dynamics from time series data. This gives EDM the flexibility to model nonlinear, state-dependent interactions that are otherwise challenging for traditionally linear mathematical models.
+
+The first part of this thesis applies EDM towards the study of sockeye salmon populations from the Fraser River in British Columbia, Canada in order to understand the factors that affect recruitment and to produce better models for the annual returns. Whereas classical (linear) fisheries models do not improve when incorporating the environment, I show that Fraser River sockeye salmon actually exhibit nonlinear dynamics, and therefore are not amenable to these methods. Instead, EDM models that can account for nonlinearity show improved forecasts, and moreover, benefit greatly from the incorporation of state-dependent environmental effects. In addition, I demonstrate that the abrupt changes in the salmon populations, correlated with North Pacific climate indices can be explained as state-dependent nonlinear behavior. Whereas classical fisheries models or linear correlations would suggest sudden shifts in behavior associated with climate regimes, an appropriate nonlinear lens indicates that environmental effects are state-dependent, and that aggregation of data at the regional level produces the apparent linear patterns.
+
+The second part of this thesis involves the development of new methods in the EDM framework to distill data (i.e. time series) into information (i.e. inferences and conclusions). I show that a lagged form of convergent cross mapping (CCM), a method to infer causation in time series, can greatly enhance its capabilities, by quantifying the time delay associated with causation. This new method can be used to distinguish between direct and indirect, transitive, effects as well as produce more reliable estimates of interaction strength. I also develop Multiview Embedding (MVE) to address the issues of noise and short time series length in high-dimensional complex systems. By using a multimodel approach that leverages the ``equation-free'' framework of EDM, MVE combines multiple reconstructions of system behavior, producing more accurate and precise forecasts, and demonstrating that complexity can be an asset, because of how information about the system dynamics is duplicated across interacting variables.
+
+Finally, these methods are included in a software package for EDM, developed for the R statistical language. A user guide for this software package, including installation instructions and examples, is included as an appendix.
+
+\end{abstract}
+\end{frontmatter}
+
+%% DISSERTATION
+
+\include{chapter_introduction}
+\include{chapter_salmon_environment}
+\include{chapter_salmon_regimes}
+\include{chapter_CCM_time_delays}
+\include{chapter_multiembed}
+
+\appendix
+\include{chapter_rEDM_package}
+
+%% END MATTER
+% \printindex %% Uncomment to display the index
+% \nocite{}  %% Put any references that you want to include in the bib 
+%               but haven't cited in the braces.
+\bibliographystyle{apalike}
+\bibliography{my_lib}
+\end{document}
